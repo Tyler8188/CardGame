@@ -1,9 +1,13 @@
 import FightModeItem from "../src/LobbyModule/FightModeItem";
+import BaseModule from "../src/BaseModule";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class LobbyScene extends cc.Component {
+
+    @property(cc.Node)
+    moduleCon:cc.Node = null;
 
     @property(cc.Node)
     fightModeCon:cc.Node = null;
@@ -36,6 +40,8 @@ export default class LobbyScene extends cc.Component {
             this.fightModeCon.addChild(modeItem);
         }
 
+        this.moduleCon.active = false;
+
         this.addEvents();
     }
 
@@ -50,7 +56,32 @@ export default class LobbyScene extends cc.Component {
 
     onBtnClick(evt:cc.Event.EventCustom)
     {
-        console.log("evt:", evt.currentTarget.name);
+        let moduleName:string = evt.currentTarget.name;
+        let moduleIndex:number = 0;
+        this.moduleCon.active = true;
+        let baseModule:BaseModule = this.moduleCon.getComponent(BaseModule);
+
+        switch (moduleName) {
+            case "RankBtn":
+                moduleIndex = 0;
+                break;
+            case "ShopBtn":
+                moduleIndex = 1;
+                break;
+            case "DrunkeryBtn":
+                moduleIndex = 2;
+                break;
+            case "ActivityBtn":
+                moduleIndex = 3;
+                break;
+            case "SettingBtn":
+                moduleIndex = 4;
+                break;
+            default:
+                moduleIndex = 0;
+                break;
+        }
+        baseModule.initView(moduleIndex);
     }
 
 }
