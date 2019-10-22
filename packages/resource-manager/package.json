@@ -1,0 +1,21 @@
+{
+  "name": "resource-manager",
+  "version": "1.0.0",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "scene-script": "scene-walker.js",
+  "main": "main.js",
+  "main-menu": {
+    "插件/资源管理": {
+      "message": "resource-manager:open",
+      "accelerator": "CmdOrCtrl+r"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "resource-manager",
+    "width": 960,
+    "height": 720
+  }
+}

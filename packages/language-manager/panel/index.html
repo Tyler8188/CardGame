@@ -1,0 +1,86 @@
+<div xmlns:v-bind="http://www.w3.org/1999/xhtml">
+     <ui-prop name="选择多语言目录：">
+        <div class="flex-3 layout horizontal center">
+            <ui-input class="flex-3" v-value="rootPath" v-on:change="onRootPathChange"></ui-input>
+            <ui-button class="green" v-on:confirm="onSelectRootPath">选择</ui-button>
+            <ui-button v-if="isValidPath()" class="blue" v-on:confirm="onAddLanguage">添加语言</ui-button>
+        </div>
+    </ui-prop>
+    <ui-prop name="查找关键词：">
+        <div class="flex-1 layout horizontal center">
+            <ui-input class="flex-3"></ui-input>
+            <ui-checkbox title="只查找多语言的key关键词"></ui-checkbox>
+            <ui-button class="blue">
+                <i class="fa fa-search"></i>
+                查找
+            </ui-button>
+        </div>
+    </ui-prop>
+    <div class="fullFit title">
+        <div class="layout horizontal">
+            <h3 class="content" align="center" v-for="(index,item) in languages">
+                <ui-button class="blue" v-if="index==0" v-on:confirm="onAddLanguageData" style="width: 100%;height: 18px;" unnavigable>+</ui-button>
+                {{item.name}}
+            </h4>
+        </div>
+    </div>
+    <div class="fullFit view scroll">
+        <div v-for="(index,item) in languageDatas" class="layout horizontal">
+            <ui-input class="content" v-for="(index1,item1) in item" v-on:change="onLanguageDataChange(index,index1,el)" v-model="item1.value" v-value="item1.value"></ui-input>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="fullFit">
+        <ui-splitter class="splitter" row>
+            <ui-splitter width="200" min-width="100">
+                <div class="box">
+
+                </div>
+            </ui-splitter>
+            <ui-splitter width="200" min-width="100">
+                <div class="box">
+
+                </div>
+            </ui-splitter>
+            <ui-splitter width="200" min-width="100">
+                <div class="box">
+                </div>
+            </ui-splitter>
+        </ui-splitter> 
+    </div> -->
+</div>

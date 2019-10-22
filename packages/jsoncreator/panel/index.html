@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>JsonCreator</title>
+    <link href="../dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <script src="../dist/jsoneditor.min.js"></script>
+    <link href="../dist/darktheme.css" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+        #jsoneditor {
+            width: 600px;
+            height: 600px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="jsoneditor"></div>
+
+    <script>
+        // create the editor
+        var container = document.getElementById('jsoneditor');
+        var options = {
+            modes: ['text', 'tree']
+        };
+        var editor = new JSONEditor(container, options);
+    </script>
+</body>
+
+</html>

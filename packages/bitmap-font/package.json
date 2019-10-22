@@ -1,0 +1,27 @@
+{
+  "name": "bitmap-font",
+  "version": "0.0.1",
+  "description": "bitmap font genernal.",
+  "author": "xuyanfeng",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/i18n:bitmap-font.title": {
+      "message": "bitmap-font:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "bitmap-font",
+    "width": 800,
+    "height": 580
+  },
+  "dependencies": {
+    "image-size": "^0.6.1",
+    "spritesmith": "^3.1.1",
+    "uglify-es": "^3.1.8"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}

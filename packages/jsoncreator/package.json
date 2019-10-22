@@ -1,0 +1,20 @@
+{
+  "name": "jsoncreator",
+  "version": "0.0.1",
+  "description": "Json可视化编辑器",
+  "author": "tt",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/JsonCreator": {
+      "message": "jsoncreator:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.html",
+    "type": "simple",
+    "title": "jsoncreator",
+    "resizable": false,
+    "width": 600,
+    "height": 600
+  }
+}

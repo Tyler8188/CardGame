@@ -1,0 +1,12 @@
+{
+  "name": "unpack-textureatlas",
+  "version": "0.0.1",
+  "description": "A package for unpacking texture atlas created with TexturePacker.",
+  "author": "zilongshanren",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/unpack-textureatlas/unpack": {
+      "message": "unpack-textureatlas:unpack"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+<!--核心参数设置-->
+
+<div class="layout vertical " xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <!--多配置开发-->
+    <ui-prop name="配置列表" style="display: none">
+        <ui-select class="flex-1" v-on:change="onCfgSelectChange" id="ipSelection">
+            <option track-by="$index" v-for="cfg in cfgArray" v-bind:value="cfg">{{cfg}}</option>
+            <option v-disabled="false" v-on:confirm="onAddCfg">添加新配置</option>
+        </ui-select>
+
+        <!--<ui-button v-disabled="false" v-on:confirm="onLogIp">ip</ui-button>-->
+    </ui-prop>
+    <ui-prop name="保存路径:">
+        <div class="flex-1 layout horizontal center">
+            <ui-input class="flex-1" readonly disabled
+                      v-value="fileSavePath"></ui-input>
+            <!--<ui-button v-on:confirm="onClickSelect" >选择</ui-button>-->
+            <ui-button v-on:confirm="onClickOpen" v-show="fileSavePath && fileSavePath.length > 0 ">打开
+            </ui-button>
+        </div>
+    </ui-prop>
+    <ui-prop name="保存文件名:">
+        <div class="flex-1 layout horizontal  center">
+            <ui-input class="flex-1" v-on:blur="onUpdateSaveName" v-value="fileSaveName"></ui-input>
+            <ui-button class="green" v-on:confirm="onClickGen" v-if="fileSaveName&&fileSaveName.length>0">
+                生成
+            </ui-button>
+        </div>
+    </ui-prop>
+    <ui-prop name="导入到项目:" tooltip="推荐单独生成位图文件时使用">
+        <div class="flex-1 layout horizontal  center ">
+            <ui-input class="flex-1" readonly v-value="fileImportPath"></ui-input>
+            <ui-button class="  " v-on:confirm="onSelectImportPath"> 选择</ui-button>
+            <ui-button class=" red " v-on:confirm="onImportFont"
+                       v-if="fileImportPath&&fileImportPath.length>0">
+                导入
+            </ui-button>
+            <!--<ui-button v-on:confirm="onBtnClickTest">压缩index.js</ui-button>-->
+        </div>
+
+    </ui-prop>
+    <ui-prop name="项目位图文件" tooltip="推荐更新项目位图文件时使用"
+             style="height: 50px;">
+        <div class="box flex-1 layout horizontal center">
+            <ui-asset type="bitmap-font" v-value="uuid" class="flex-1">
+            </ui-asset>
+        </div>
+        <ui-button class=" blue " v-on:confirm="onGenAndImportFont"
+                   v-if="uuid&&uuid.length>0">生成并导入
+        </ui-button>
+    </ui-prop>
+</div>
+<div class="wrapper center layout horizontal"
+     style="margin-left: 15px; margin-right: 25px;"
+>
+    <div class="box flex-1">
+        <h4 style="width: 100%;margin: 0 0 0 0" align="center"> 序号</h4>
+    </div>
+    <div class="box flex-3" style="display: none;">
+        <h4 style="width: 100%;margin: 0 0 0 0" align="left"> 本地文件路径</h4>
+    </div>
+    <div class="box flex-1">
+        <h4 style="width: 100%;margin: 0 0 0 0" align="center"> 尺寸</h4>
+    </div>
+    <div class="box flex-1">
+        <h4 style="width: 100%;margin: 0 0 0 0" align="center"> 图片</h4>
+    </div>
+    <div class="box flex-1">
+        <h4 style="width: 100%;margin: 0 0 0 0" align="center"> 字符</h4>
+    </div>
+    <div class="box flex-1 layout horizontal">
+        <h4 style="width: 100%;margin: 0 0 0 0" align="center"> 操作</h4>
+    </div>
+</div>
+<div id="view" class="scroll">
+    <div class="section" id="section">
+        <ui-box-container class="shadow height-limited"
+                          style="height: auto; min-height: 200px;"
+                          id="container"
+                          v-on:drop="drop($event)"
+                          v-on:dragover="dragOver($event)"
+                          v-on:dragenter="dragEnter($event)"
+                          v-on:dragleave="dragLeave($event)">
+
+            <h1 v-if="charDataArray&&charDataArray.length===0"
+                style="width: 100%;height: auto; margin: 0;line-height: 200px;" align="center"
+            >
+                拖拽图片到这里
+            </h1>
+            <char-item v-if="charDataArray&&charDataArray.length>0" track-by="$index"
+                       v-for="(index,charItem) in charDataArray" v-bind:data="charItem"
+                       v-bind:index="index">
+            </char-item>
+        </ui-box-container>
+
+    </div>
+</div>
+<div style="width: 100%; height: 150px;margin: 0 0 0 0 ;">
+    <hr style="margin: 0 0 0 0 ;"/>
+    <h2 style="margin: 0 0 0 0">日志:</h2>
+    <textarea class="flex-1 " id="logTextArea" v-model="logView"
+              style="width: 100%; height: 120px; background: #252525;	resize: none; color: #fd942b;	border-color: #fd942b;"></textarea>
+</div>

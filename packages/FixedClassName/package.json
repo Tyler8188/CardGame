@@ -1,0 +1,14 @@
+{
+  "name": "fixedclassname",
+  "version": "0.0.1",
+  "description": "自动为TypeScript的类加上ClassName属性",
+  "author": "lhn",
+  "main": "main.js",
+  "main-menu": 
+  {
+    "插件/添加ClassName": 
+	{
+      "message": "fixedclassname:openPanel"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="root" xmlns:v-on="http://www.w3.org/1999/xhtml">
+	<ui-prop class="flex-1" name={{index}}>
+		<ui-checkbox id="prefabCheckbox" v-on:confirm="onChange" class="flex-1" unnavigable checked={{data.selected}}>{{data.value}}</ui-checkbox>
+		<div>
+			<ui-button v-on:confirm="onClickBtnPingPong" class="green tiny">
+				<i class="icon-eye"></i>
+				<!--删除-->
+			</ui-button>
+			<ui-button v-on:confirm="onClickBtnEdite" class="blue tiny">
+				<i class="icon-doc-text"></i>
+				<!--删除-->
+			</ui-button>
+		</div>
+	</ui-prop>
+</div>
+

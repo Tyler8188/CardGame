@@ -1,0 +1,36 @@
+import { {SuperModuleName} } from "{SuperModulePath}";
+import { {BinderName} } from "{BinderPath}";
+import { getNodeChildByName } from "{getNodeChildByNamePath}";
+
+/**
+*@description:{ModuleName}
+**/
+export class {ModuleClassName} extends {SuperModuleName} 
+{
+	public static ClassName:string = "{ModuleClassName}";
+	public get assets():any[]{return [{ModulePrefabs}]};
+	
+
+	protected createViews():void
+	{
+		super.createViews();
+		this.binder = new {BinderName}();
+		
+	}
+	
+	protected bindViews():void
+	{
+		let view = getNodeChildByName(this.node,{BindNode});
+		if(this.binder&&view)
+            this.binder.bindView(view);
+	}
+
+	protected showViews():void
+	{
+		super.showViews();
+	}
+	protected hideViews():void
+	{
+		super.hideViews();
+	}
+}

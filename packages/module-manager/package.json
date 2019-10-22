@@ -1,0 +1,23 @@
+{
+  "name": "module-manager",
+  "version": "1.0.0",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "插件/模块管理": {
+      "message": "module-manager:open",
+      "accelerator": "CmdOrCtrl+m"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "module-manager",
+    "width": 960,
+    "height": 720
+  },
+  "dependencies": {
+    "node-cmd": "^3.0.0"
+  }
+}

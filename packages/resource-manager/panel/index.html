@@ -1,0 +1,65 @@
+<div class="layout horizontal" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+     xmlns:v-on="http://www.w3.org/1999/xhtml">
+	<div class="layout vertical flex-1">
+		<ui-prop name="查找关键词：" style="margin: 0 0 0 0;">
+			<ui-input id="keyword" class="flex-1" v-on:change="onMatchKeyword(false)"></ui-input>
+			<ui-checkbox v-bind:checked="isMatchFilePath" v-on:change="onMatchKeyword(true)" aria-hidden="true" title="关键词匹配文件路径"></ui-checkbox>
+		</ui-prop>
+		<ui-prop name="选择资源类型：" style="margin: 0 0 0 0;">
+			<ui-select id="resouceType" class="flex-1" v-on:change="onResouceTypeChange">
+				<option v-for="option in resouceTypes">{{option}}</option>
+			</ui-select>
+			<ui-checkbox v-bind:checked="isShowResourcePath" v-on:click="isShowResourcePath=!isShowResourcePath" aria-hidden="true" title="显示资源路径"></ui-checkbox>
+		</ui-prop>
+		<section class="list-section">
+			<ul>
+				<h2 v-if="!isFindUnuseRes&&resourceDatas && resourceDatas.length===0"
+					style="width: 100%;height: auto; margin: 0;line-height: 200px;" align="center">
+					未找到此类型的资源
+				</h2>
+				<h2 v-if="isFindUnuseRes&&resourceDatas && resourceDatas.length===0"
+					style="width: 100%;height: auto; margin: 0;line-height: 200px;" align="center">
+					查找中:{{unuseCurrent}}/{{unuseTotal}}
+				</h2>
+				<li v-for="item in resourceDatas">
+					<div class="flex-1" :title="item.path">{{fixedFilePathName(item)}}</div>
+					<ui-button v-on:confirm="onPingPongResource(item)" class="green mini" title="在资源管理器中定位资源">
+						<i class="icon-eye" aria-hidden="true" ></i>
+						<!--删除-->
+					</ui-button>
+					<ui-button v-if="isShowEditorBtn(item)" v-on:confirm="onEditeResource(item)" class="blue mini" title="编辑资源">
+						<i class="icon-doc-text" aria-hidden="true" ></i>
+						<!--删除-->
+					</ui-button>
+					<ui-button v-on:confirm="onSearchResource(item)" class="red mini" title="查找资源引用">
+						<i class="fa fa-search" aria-hidden="true" ></i>
+						<!--删除-->
+					</ui-button>
+				</li>
+			</ul>
+		</section>
+	</div>
+	<div class="layout vertical" style="padding-left:20px;">
+		<h2 style="margin-top: 8px;margin-bottom: 8px;">资源引用详情</h2>
+		<span class="span">资源名称：{{currentRes?currentRes.item.url.replace("db://assets/",""):""}}</span>
+		<section class="content-section">
+			<ul>
+				<h1 v-if="findRescources && findRescources.length===0"
+					style="width: 100%;height: auto; margin: 0;line-height: 200px;" align="center">
+					未找到引用此资源的项目文件
+				</h1>
+				<li v-for="item in findRescources">
+					<div class="findTitle" :title="item.item.path">{{item.fileName}}</div>
+					<div class="flex-1" :title="item.item.uuid">{{item.path}}</div>
+					<ui-button v-on:confirm="onPingPongResource(item)" class="green mini" title="在资源管理器中定位资源">
+						<i class="icon-eye" aria-hidden="true" ></i>
+					</ui-button>
+					<ui-button v-if="isShowEditorBtn(item)" v-on:confirm="onOpenResource(item)" class="blue mini" title="打开资源">
+						<i class="icon-doc-text" aria-hidden="true" ></i>
+					</ui-button>
+				</li>
+			</ul>
+		</section>
+	</div>
+</div>
+

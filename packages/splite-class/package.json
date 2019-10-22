@@ -1,0 +1,14 @@
+{
+  "name": "spliteclass",
+  "version": "0.0.1",
+  "description": "对一个文件中存在多个类的文件进行自动分割",
+  "author": "lhn",
+  "main": "main.js",
+  "main-menu": 
+  {
+    "插件/分割Class文件": 
+	{
+      "message": "spliteclass:openPanel"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+<ui-section folded>
+    <div class="header">新增模块设置</div>
+    <ui-prop name="选择核心库所在目录：">
+        <div class="flex-1 layout horizontal  center">
+            <ui-input class="flex-1" disabled v-value="coreFilePath"></ui-input>
+            <ui-button class="green" v-on:confirm="onSelectCoreDir">选择</ui-button>
+        </div>
+    </ui-prop>
+    <ui-prop name="设置生成模块目录：">
+        <div class="flex-1 layout horizontal  center">
+            <ui-input class="flex-1" disabled  v-value="moduleFilePath"></ui-input>
+            <ui-button class="green" v-on:confirm="onSelectModuleDir">选择</ui-button>
+        </div>
+    </ui-prop>
+    <ui-prop name="设置新增模块名称：">
+        <ui-input id="moduleNameTxt" class="flex-1"></ui-input>
+        <ui-checkbox v-bind:checked="isCreateModuleDir" v-on:click="(isCreateModuleDir=!isCreateModuleDir)" checked>创建模块文件夹</ui-checkbox>
+    </ui-prop>
+    <ui-prop name="模块继承父类：">
+        <ui-select class="flex-1 layout horizontal center" id="moduleCoreSelect" >
+            <option v-for="option in superModuleArr" v-bind:value="option.value">{{ option.text }}</option>
+        </ui-select>
+        <ui-checkbox v-bind:checked="onlyShowModuleClass" v-on:click="onShowModuleClassChange">只显示Module类</ui-checkbox>
+    </ui-prop>
+    <ui-prop name="绑定的Node：">
+        <ui-input id="BindAttrTxt" class="flex-1"></ui-input>
+        <i class="icon-eye" style="cursor: pointer;" aria-hidden="true" title="不填默认绑定this.node，绑定其他节点Panel/Content 等同 this.node.Panel.Content"></i>
+    </ui-prop>
+    <ui-prop name="模块描述：">
+        <ui-input id="moduleDescribeTxt" class="flex-1"></ui-input>
+    </ui-prop>
+    <ui-prop name="模块所中需要使用的预制体：" foldable folded>
+        <div class="flex-1 layout horizontal left">[{{selectedPrefabs}}]</div>
+        <div class="child scroll">
+            <ui-box-container class="shadow height-limited"
+                          style="height: 150px; min-height:50px;">
+                <prefab-item v-if="prefabs && prefabs.length>0" track-by="$index"
+                        v-for="(index,prefabItem) in prefabs" v-bind:data="prefabItem"
+                        v-bind:index="index">
+                </prefab-item>
+            </ui-box-container>
+        </div>
+    </ui-prop>
+    <ui-prop name="是否生成Binder文件">
+        <ui-checkbox v-bind:checked="isCreateBinder" v-on:click="(isCreateBinder=!isCreateBinder)" class="flex-1" checked></ui-checkbox>
+    </ui-prop>
+    <div id="binderContainer" v-show="isCreateBinder">
+        <ui-prop name="生成对应的Binder名称：">
+            <ui-input id="binderNameTxt" class="flex-1"></ui-input>
+        </ui-prop>
+        <ui-prop name="Binder继承父类：">
+            <ui-select class="flex-1 layout horizontal  center" id="binderCoreSelect">
+                <option v-for="option in superBinderArr" v-bind:value="option.value">{{ option.text }}</option>
+            </ui-select>
+            <ui-checkbox v-bind:checked="onlyShowBinderClass" v-on:click="onShowBinderClassChange">只显示Binder类</ui-checkbox>
+        </ui-prop>
+    </div>
+    <ui-prop name="">
+        <ui-button class="green flex-1" v-on:confirm="onCreateModule">增加新模块</ui-button>
+    </ui-prop>
+</ui-section>
+<hr style="margin: 5 5 5 5 ;"/>
+<div class="header wrapper layout horizontal">
+    <h4 style="margin: 5 5 5 5">现有模块</h4>
+    <div class="end-justified">
+        <ui-button class='box tiny' v-on:confirm="onLoadModules">
+            <i class="icon-arrows-cw"></i>
+            刷新列表
+        </ui-button>
+    </div>
+</div>
+<hr style="margin: 5 5 5 5 ;"/>
+<div class="wrapper center layout horizontal" style="margin-left: 25px; margin-right: 25px;">
+    <div class="box flex-1 layout horizontal">
+        <h4 style="width: 100%;" align="center"> 模块名称</h4>
+    </div>
+    <div class="box flex-1">
+            <h4 style="width: 100%;" align="center"> 模块描述</h4>
+        </div>
+    <div class="box flex-3" style="display: block;">
+        <h4 style="width: 100%;" align="center"> 本地文件路径</h4>
+    </div>
+    <div class="box flex-1 layout horizontal">
+        <h4 style="width: 100%;" align="center"> 操作</h4>
+    </div>
+</div>
+<div id="view" class="scroll">
+    <div class="section" id="section">
+        <ui-box-container class="shadow height-limited"
+                          style="height: auto; min-height: 200px;"
+                          id="container"
+                          v-on:drop="dropFile($event)"
+                          v-on:dragover="drag($event)"
+                          v-on:dragenter="drag($event)"
+                          v-on:dragleave="drag($event)">
+            <h1 v-if="currentModules && currentModules.length===0"
+                style="width: 100%;height: auto; margin: 0;line-height: 200px;" align="center">
+                未在项目中找到已有模块
+            </h1>
+            <module-item v-if="currentModules && currentModules.length>0" track-by="$index"
+                        v-for="(index,moduleItem) in currentModules" v-bind:data="moduleItem"
+                        v-bind:index="index">
+            </module-item>
+        </ui-box-container>
+    </div>
+</div>
+<div style="width: 100%; height: 150px;margin: 0 0 0 0 ;">
+    <hr style="margin: 0 0 0 0 ;"/>
+    <h2 style="margin: 0 0 0 0">日志:</h2>
+    <textarea class="flex-1 " id="logTextArea" v-model="logView"
+              style="width: 100%; height: 120px; background: #252525;	resize: none; color: #fd942b;	border-color: #fd942b;"></textarea>
+</div>

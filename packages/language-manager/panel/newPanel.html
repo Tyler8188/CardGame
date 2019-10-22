@@ -1,0 +1,16 @@
+<div xmlns:v-bind="http://www.w3.org/1999/xhtml">
+	<div class="flex-3 view">
+		<ui-prop name="新建多语言文件名称：">
+			<ui-input class="flex-3" v-model="fileName" v-value="fileName"></ui-input>
+		</ui-prop>
+		<div style="margin:10px;" class="flex-3 layout vertical center">
+			<ui-button class="green" v-on:confirm="onCreateNewLanguage">
+				<i class="icon-doc-text"></i>
+				创建多语言文件
+			</ui-button>
+		</div>
+		<div v-if="errMsg&&errMsg.length!=0" style="margin:10px;" class="flex-3 layout vertical center">
+			<span style="color:red;">{{errMsg}}</span>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "name": "spriteframe-operator",
+  "version": "1.0.0",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "scene-script": "scene-walker.js",
+  "main": "main.js",
+  "main-menu": {
+    "插件/精灵图片替换": {
+      "message": "spriteframe-operator:open",
+      "accelerator": "CmdOrCtrl+o"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "spriteframe-operator",
+    "width": 960,
+    "height": 720
+  }
+}

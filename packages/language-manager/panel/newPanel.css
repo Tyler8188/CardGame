@@ -1,0 +1,10 @@
+@import url('app://bower_components/fontawesome/css/font-awesome.min.css');
+:host {
+  display: flex;
+  flex-direction: column;
+}
+.view
+{
+  padding: 20px;
+  margin: 50px;
+}

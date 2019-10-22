@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "9945a53e-385f-479b-8b1a-d7a7afebba85",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "slwh_game1_icon1_4e24053760b5a23a4b4d4ef0b2e1fc39": {
+      "ver": "1.0.3",
+      "uuid": "7f3e0387-b5bf-4bf3-b5d2-683a97e7efd4",
+      "rawTextureUuid": "9945a53e-385f-479b-8b1a-d7a7afebba85",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 115,
+      "height": 114,
+      "rawWidth": 115,
+      "rawHeight": 114,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

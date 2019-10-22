@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "e04e0e4b-c61e-4689-917d-ce5c9d2c27fb",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "slwh_game_panda_0dc29bc2344c026d6ed23b5951c56822": {
+      "ver": "1.0.3",
+      "uuid": "bf8cb238-2e3f-4a74-81d0-0a24e9e9707d",
+      "rawTextureUuid": "e04e0e4b-c61e-4689-917d-ce5c9d2c27fb",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 34,
+      "height": 30,
+      "rawWidth": 34,
+      "rawHeight": 30,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

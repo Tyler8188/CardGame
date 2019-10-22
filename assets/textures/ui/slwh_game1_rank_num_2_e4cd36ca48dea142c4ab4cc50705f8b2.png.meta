@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "59b93b8e-c90f-4d14-bb10-816fa352f449",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "slwh_game1_rank_num_2_e4cd36ca48dea142c4ab4cc50705f8b2": {
+      "ver": "1.0.3",
+      "uuid": "0dfa150e-3457-42a2-b66d-d600a672635b",
+      "rawTextureUuid": "59b93b8e-c90f-4d14-bb10-816fa352f449",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 46,
+      "height": 63,
+      "rawWidth": 46,
+      "rawHeight": 63,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

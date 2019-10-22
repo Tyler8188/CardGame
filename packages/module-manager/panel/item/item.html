@@ -1,0 +1,32 @@
+<div class="root" xmlns:v-on="http://www.w3.org/1999/xhtml"
+     v-on:mouseover="onMouseOver"
+     v-on:mouseout="onMouseOut">
+    <div class="wrapper layout horizontal center">
+        <div class="box flex-1">
+            <ui-button v-on:confirm="onClickBtnPingPong" class="transparent" style="width:100%">
+                {{data.name}}
+            </ui-button>
+        </div>
+        <div class="box flex-1" style="display: block;"> 
+            <ui-button class="transparent" style="width:100%">
+                {{data.desc}}
+            </ui-button> 
+        </div>
+        <div class="box flex-3" style="display: block;"> 
+            <ui-button v-on:confirm="onClickBtnOpenFile" class="transparent" style="width:100%">
+                {{data.filePath}}
+            </ui-button> 
+        </div>
+        <div class="box layout horizontal flex-1">
+            <ui-button v-on:confirm="onClickBtnEdite" class="blue flex-2">
+                <i class="icon-doc-text"></i>
+                <!--删除-->
+            </ui-button>
+            <ui-button v-on:confirm="onClickBtnDel" class="red flex-2">
+                <i class="icon-trash-empty"></i>
+                <!--删除-->
+            </ui-button>
+        </div>
+    </div>
+    <hr style="margin: 0 0 0 0 ;"/>
+</div>

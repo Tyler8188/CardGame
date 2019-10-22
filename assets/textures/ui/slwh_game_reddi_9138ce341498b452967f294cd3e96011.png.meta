@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "8b3dc173-4cbe-48dd-ab29-0aae629fd6e2",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "slwh_game_reddi_9138ce341498b452967f294cd3e96011": {
+      "ver": "1.0.3",
+      "uuid": "7b2d2541-82a7-4702-b6e8-b741c98cc840",
+      "rawTextureUuid": "8b3dc173-4cbe-48dd-ab29-0aae629fd6e2",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 188,
+      "height": 72,
+      "rawWidth": 188,
+      "rawHeight": 72,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

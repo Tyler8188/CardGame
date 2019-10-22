@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "0377a864-54b0-488a-8d88-67be3dd3a66a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "slwh_game_coin_1aa0ef0dc8a386f532ed89222ee3d478": {
+      "ver": "1.0.3",
+      "uuid": "0f5dcfaa-ac94-4762-822d-117266dc093a",
+      "rawTextureUuid": "0377a864-54b0-488a-8d88-67be3dd3a66a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 42,
+      "height": 42,
+      "rawWidth": 42,
+      "rawHeight": 42,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

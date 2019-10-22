@@ -1,0 +1,14 @@
+import { {SuperBinderName} } from "{SuperBinderPath}";
+
+/**
+*{BinderName}
+**/
+export class {BinderClassName} extends {SuperBinderName} 
+{
+	public static ClassName:string = "{BinderClassName}";
+	
+	protected initViews():void
+	{
+		super.initViews();
+	}
+}

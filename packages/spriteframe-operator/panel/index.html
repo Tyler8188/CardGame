@@ -1,0 +1,30 @@
+<div class="layout vertical flex-1">
+	<ui-prop name="查找资源">
+		<ui-asset class="flex-1" v-value="uuid" type="sprite-frame"></ui-asset>
+	</ui-prop>
+	<ui-prop name="替换成">
+		<ui-asset class="flex-1" v-value="replaceuuid" type="sprite-frame"></ui-asset>
+	</ui-prop>
+	<section class="list-section">
+		<ul>
+			<li v-for="item in targets">
+				<div :style="{'color':dict.indexOf(item)==-1?'#D9D9D9':'#53F76C'}" class="flex-1" :title="item.path">{{item.url.replace('db://assets/','')}}</div>
+				<ui-button v-on:confirm="onPingPongResource(item)" class="green mini" title="定位资源">
+					<i class="icon-eye" aria-hidden="true" ></i>
+				</ui-button>
+				<ui-button v-on:confirm="onEditeResource(item)" class="blue mini" title="编辑资源">
+					<i class="icon-doc-text" aria-hidden="true"></i>
+				</ui-button>
+				<ui-button v-if="replaceuuid.length!=0" v-on:confirm="onReplaceResource(item)" class="red mini" title="替换SpriteFrame引用">
+					<i class="icon-eject-alt-outline" aria-hidden="true"></i>
+				</ui-button>
+			</li>
+		</ul>
+	</section>
+	<div style="width: 100%; height: 150px;margin: 0 0 0 0 ;">
+		<hr style="margin: 0 0 0 0 ;"/>
+		<h2 style="margin: 0 0 0 0">日志:</h2>
+		<textarea class="flex-1 " id="logTextArea" v-model="logView"
+					style="width: 100%; height: 120px; background: #252525;	resize: none; color: #fd942b;	border-color: #fd942b;"></textarea>
+	</div>
+</div>

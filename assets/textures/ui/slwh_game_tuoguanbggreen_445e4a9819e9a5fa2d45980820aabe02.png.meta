@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "14c8fa27-2099-46c7-8f13-bb1e899ad4a8",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "slwh_game_tuoguanbggreen_445e4a9819e9a5fa2d45980820aabe02": {
+      "ver": "1.0.3",
+      "uuid": "63daebbd-f0ad-4f61-b472-205bdad78742",
+      "rawTextureUuid": "14c8fa27-2099-46c7-8f13-bb1e899ad4a8",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 75,
+      "height": 76,
+      "rawWidth": 75,
+      "rawHeight": 76,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
