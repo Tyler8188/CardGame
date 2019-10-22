@@ -40,14 +40,14 @@ export default class SkillCD extends cc.Component {
 
     update (dt) {
         if(this.isCDing){
-            var dt = Date.now() - this._cdStart;  
-            if(dt >= this.cd){
-                this.progressBar.progress = 0;
-                this._cdStart = 0;
-            }
-            else{
-                this.progressBar.progress = 1 - dt / this.cd;
-            }
+            // var dt = Date.now() - this._cdStart;  
+            // if(dt >= this.cd){
+            //     this.progressBar.progress = 0;
+            //     this._cdStart = 0;
+            // }
+            // else{
+            //     this.progressBar.progress = 1 - dt / this.cd;
+            // }
         }
     }
 }
